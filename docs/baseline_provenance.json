@@ -1,0 +1,11 @@
+{
+  "baseline_repo": "https://github.com/BhaveshBytess/Revisiting-GNNs-FraudDetection",
+  "commit_sha": "ccab3f9ff99c1c84090a396015ed695fa8394c39",
+  "zenodo_doi": "TBD - baseline not yet published to Zenodo",
+  "imported_files": [
+    "src/data/splits.py (copied to data/Elliptic++ Dataset/splits.py)",
+    "reports/metrics_summary.csv"
+  ],
+  "import_date_utc": "2025-11-09T16:47:33Z",
+  "notes": "Baseline uses programmatic splits (splits.py) instead of splits.json"
+}
