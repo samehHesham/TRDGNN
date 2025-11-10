@@ -1,0 +1,35 @@
+{
+  "num_nodes": {
+    "transaction": 203769,
+    "address": 100000
+  },
+  "num_edges": {
+    "transaction_to_transaction": 234355,
+    "address_to_transaction": 53059,
+    "transaction_to_address": 80489,
+    "address_to_address": 54173
+  },
+  "num_labeled": {
+    "transaction": 46564,
+    "address": 31754
+  },
+  "temporal_range": {
+    "transaction": [
+      1,
+      49
+    ],
+    "address": [
+      1,
+      49
+    ]
+  },
+  "feature_dims": {
+    "transaction": 93,
+    "address": 55
+  },
+  "splits": {
+    "train": 26381,
+    "val": 8999,
+    "test": 11184
+  }
+}
