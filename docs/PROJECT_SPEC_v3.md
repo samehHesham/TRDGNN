@@ -85,10 +85,135 @@ Define the **what** of this extension: minimal scope to deliver a **leakage-safe
 **Common:** `in_channels`, `hidden_channels`, `out_channels=2`, `num_layers`, `dropout`, ReLU.
 **Output:** logits `[N,2]` for labeled nodes in each split.
 
-### 5.3 Optional Variants (lightweight)
+---
 
-* **HHGTN-lite:** bucket edges by relation type (e.g., IN, OUT, SELF) and apply per-relation weights; single additional relation-mix layer.
-* **Hypergraph (toy):** construct incidence matrix for simple tx–entity hyperedges (e.g., address clusters) and one hyperedge aggregation pass; purely demonstrative.
+## 🔮 SECTION 5.4 — TRD-HHGTN (Heterogeneous Temporal GNN)
+
+**Purpose:** Extend TRD-GraphSAGE to multi-entity, multi-relation graphs using Elliptic++’s full relational structure
+(`Transaction`, `Address`, `Wallet`).
+
+**Motivation:**
+Baseline GNNs and fusion models treat the Elliptic graph as *homogeneous* (single node/edge type).
+However, fraud behavior occurs *across* entities: wallets ↔ addresses ↔ transactions.
+Hence, a **Heterogeneous Temporal GNN (HHGTN)** integrates relation-specific learning and temporal realism.
+
+### **Graph Schema**
+
+| Node Type     | Source File            | Key Fields                 |
+| ------------- | ---------------------- | -------------------------- |
+| `Transaction` | `txs_features.csv`     | txid, timestamp, AF1–AF182 |
+| `Address`     | `Addr*` files          | addr_id                    |
+| `Wallet`      | `wallets_features.csv` | wallet_id, features, label |
+
+| Edge Type   | Source → Target               | Source File             |
+| ----------- | ----------------------------- | ----------------------- |
+| `tx→tx`     | transaction flow              | `txs_edgelist.csv`      |
+| `addr→tx`   | address input to transaction  | `AddrTx_edgelist.csv`   |
+| `tx→addr`   | transaction output to address | `TxAddr_edgelist.csv`   |
+| `addr→addr` | address peer relations        | `AddrAddr_edgelist.csv` |
+
+Each edge list must contain:
+
+```csv
+src_id,dst_id,timestamp
+```
+
+and all edges are filtered by TRD time windows.
+
+### **Model Architecture**
+
+```
+Input  →  Per-relation linear transform
+        →  TRD-sampled message passing (per edge type)
+        →  Semantic attention fusion (relation importance)
+        →  Node-type projection (Transaction / Address / Wallet)
+        →  Temporal readout (wallet-level or tx-level logits)
+```
+
+**Key Modules**
+
+| Module           | Function                                          |
+| ---------------- | ------------------------------------------------- |
+| `RelationConv`   | learns message functions per edge type            |
+| `SemanticFusion` | attention weighting of relation embeddings        |
+| `TRDSampler`     | time-relaxed, direction-preserving batch sampling |
+| `ReadoutHead`    | aggregation by node type or wallet cluster        |
+
+**Output:**
+`reports/trd_hhgtn_metrics.json` + `reports/trd_hhgtn_pr_roc.png`
+
+---
+
+## ⚙️ SECTION 5.5 — TRD-HyperHead (Optional Hypergraph Extension)
+
+**Purpose:** Capture higher-order motifs (e.g., addr–tx–addr groups, wallet clusters).
+Derived from **HHGTN embeddings**, extended via *bipartite expansion*.
+
+**Procedure:**
+
+1. Construct hyperedges where ≥2 addresses interact with same tx in short temporal window.
+2. Represent hyperedges as auxiliary adjacency matrices.
+3. Add `HyperHead` that aggregates motif embeddings and re-injects into node states.
+
+**Files:**
+`src/models/trd_hyper_head.py`
+`notebooks/05_trd_hypergraph.ipynb`
+
+---
+
+## 🧠 SECTION 6 — Updated Evaluation Plan
+
+| Setting          | Model                    | Target    | Metric     |
+| ---------------- | ------------------------ | --------- | ---------- |
+| Temporal         | TRD-GraphSAGE            | Tx        | PR-AUC     |
+| Hetero+Temporal  | TRD-HHGTN                | Tx/Wallet | PR-AUC     |
+| Hypergraph (opt) | TRD-HHGTN+HyperHead      | Wallet    | PR-AUC     |
+| Fusion           | WalletFusion (XGB + Emb) | Wallet    | PR-AUC, F1 |
+
+*Leakage control:* Each relation’s edges filtered per split.
+*Baseline comparison:* Merge `metrics_summary_with_hhgtn.csv` with previous results.
+
+---
+
+## 🧩 SECTION 8 — Repo Additions
+
+```
+src/
+ ├── data/
+ │    └── build_relations.py        # merge all edgelists → HeteroData
+ ├── models/
+ │    ├── trd_hhgtn.py              # main model
+ │    └── trd_hyper_head.py         # optional extension
+ ├── train/
+ │    └── trd_hhgtn_train.py
+ └── eval/
+      └── hhgtn_report.py
+```
+
+---
+
+## 🧾 SECTION 11 — New Acceptance Milestones
+
+| ID     | Milestone                 | Goal                                       | Deliverables                                        |
+| ------ | ------------------------- | ------------------------------------------ | --------------------------------------------------- |
+| **E5** | Heterogeneous Graph Build | integrate all edge types → `HeteroData`    | `data/hetero_graph.pt`, `hetero_graph_summary.json` |
+| **E6** | TRD-HHGTN Train           | train leakage-safe hetero model            | `reports/trd_hhgtn_metrics.json`, `plots/`          |
+| **E7** | Ablation                  | relation & edge-type sensitivity           | `reports/hhgtn_ablation_table.csv`                  |
+| **E8** | Hypergraph Head (opt)     | test higher-order patterns                 | `reports/trd_hyper_metrics.json`                    |
+| **E9** | Wallet Fusion             | combine HHGTN embeddings + wallet features | `reports/wallet_fusion_metrics.json`                |
+
+---
+
+## 🧩 SECTION 13 — Risk Control Addendum
+
+| Risk                   | Mitigation                                          |
+| ---------------------- | --------------------------------------------------- |
+| Cross-split leakage    | enforce TRD filtering per edge type                 |
+| Missing node alignment | `build_relations.py` auto-verifies ID overlap       |
+| Memory overload        | edge sampling + per-relation batching               |
+| Feature duplication    | run Protocol A (local features only) first          |
+| Temporal skew          | verify timestamp monotonicity during relation merge |
+
 
 ---
 
