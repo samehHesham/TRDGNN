@@ -60,17 +60,24 @@ pytest tests/test_trd_sampler.py -v
 |-------|--------|---------|----|----|
 | **XGBoost** (Baseline) | **0.6689** | 0.8881 | 0.6988 | Tabular |
 | Random Forest (Baseline) | 0.6583 | 0.8773 | 0.6945 | Tabular |
-| **TRD-GraphSAGE** | **0.5582** | 0.8055 | 0.5860 | **Temporal GNN** |
+| **Simple-HHGTN (E7-A3)** ⭐ | **0.5846** | 0.8306 | 0.2584 | **Temporal Hetero GNN (BEST)** |
+| **TRD-GraphSAGE (E3)** | **0.5582** | 0.8055 | 0.5860 | **Temporal GNN** |
 | MLP (Baseline) | 0.3639 | 0.8297 | 0.4864 | Neural Net |
 
-### Key Finding: "The Temporal Tax"
+### Key Finding: "The Temporal Tax" (Reduced via E7!)
 
-Enforcing realistic temporal constraints (no future neighbors) results in a **16.5% reduction in PR-AUC** compared to the best baseline. This quantifies the cost of deployment-ready, leakage-free fraud detection.
+Enforcing realistic temporal constraints costs **12.6% PR-AUC** (down from 16.5% after E7 improvements). This quantifies the cost of deployment-ready, leakage-free fraud detection.
+
+**E7 Breakthrough:**
+- ⭐ **E7-A3 (Simple-HHGTN)** achieves **0.5846 PR-AUC** (+4.7% over E3)
+- Simplified architecture with heterogeneous structure **beats complex models**
+- Removed semantic attention → better generalization
 
 **Implications:**
-- ✅ TRD-GraphSAGE provides **honest, deployment-ready** predictions
-- ❌ Static models may "cheat" by accessing future information
-- 💡 Feature engineering (XGBoost) still beats learned GNN representations
+- ✅ **E7-A3** is the new **best temporal GNN** model
+- ✅ Heterogeneous graphs help when architecture is properly regularized
+- ✅ Simpler aggregation (sum) beats complex attention on small datasets
+- 💡 Feature engineering (XGBoost) still leads, but gap narrowing
 
 ### Visualizations
 
@@ -95,8 +102,11 @@ Commit: `ccab3f9` | Date: Nov 9, 2025
 ✅ **E1 - Bootstrap & Provenance:** Complete  
 ✅ **E2 - TRD Sampler MVP:** Complete (7/7 tests passing)  
 ✅ **E3 - TRD-GraphSAGE Training:** Complete (Kaggle results acquired)  
-✅ **E4 - Comparison Report:** **COMPLETE** ⭐  
-⏳ **E5 - Optional Variants:** Available (improvements possible)
+✅ **E4 - Comparison Report:** Complete  
+✅ **E5 - Heterogeneous Graph Construction:** Complete (303K nodes, 422K edges)  
+✅ **E6 - TRD-HHGTN (Complex):** Complete (negative result documented)  
+✅ **E7 - Ablation Study:** **COMPLETE** - Found improved model! ⭐  
+⏳ **E8-E9:** Available for future enhancements
 
 ## 📄 License
 

@@ -1,0 +1,28 @@
+{
+  "experiment": "E7_Ablation_Study",
+  "date": "2025-11-11T08:05:26.614374",
+  "results": {
+    "A1_tx_only": {
+      "pr_auc": 0.06871955594887065,
+      "roc_auc": 0.6217678453455066,
+      "f1": 0.15717695192635528
+    },
+    "A2_addr_tx": {
+      "pr_auc": 0.052415540731433036,
+      "roc_auc": 0.5081889797583017,
+      "f1": 0.1115155819941401
+    },
+    "A3_all_edges": {
+      "pr_auc": 0.5846439775485478,
+      "roc_auc": 0.83063117572141,
+      "f1": 0.25841024114319733
+    }
+  },
+  "insights": {
+    "architecture_impact": -0.49308044405112933,
+    "address_feature_impact": -0.016304015217437615,
+    "additional_edges_impact": 0.5322284368171147,
+    "simplification_benefit": 0.3040439775485478
+  },
+  "conclusion": "New best found"
+}
