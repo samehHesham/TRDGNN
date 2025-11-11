@@ -9,10 +9,6 @@
 
 ## 📊 Quick Stats
 
-![Experiment Timeline](reports/plots/experiment_timeline.png)
-
-*Complete research journey from E1 to E9*
-
 | Metric | Value |
 |--------|-------|
 | **Best GNN Model** | E7-A3 Simple-HHGTN |
@@ -68,30 +64,20 @@
 
 ## 💎 Six Novel Contributions
 
-![Six Novel Contributions](reports/plots/six_contributions.png)
-
-*All six contributions rated by citation value (⭐ = excellent, ⭐⭐⭐⭐⭐ = outstanding)*
-
 ### 1. **Temporal Tax Quantification & Reduction** ⭐⭐⭐⭐⭐
 **What:** Enforcing realistic temporal constraints costs 16.5% (E3) but improved to 12.6% (E7-A3)  
 **Why Unique:** First quantification AND reduction of temporal evaluation cost  
 **Citation Value:** VERY HIGH - Novel metric for temporal GNN research
-
-![Temporal Tax Reduction](reports/plots/temporal_tax_reduction.png)
 
 ### 2. **Architecture > Scale Principle** ⭐⭐⭐⭐⭐
 **What:** 50K parameters (E7-A3) beats 500K parameters (E6) by 108%  
 **Why Unique:** Systematic proof that simpler architectures generalize better on small datasets  
 **Citation Value:** VERY HIGH - Challenges "bigger is better" assumption
 
-![Architecture vs Scale](reports/plots/architecture_vs_scale.png)
-
 ### 3. **GNN-Tabular Fusion Synergy** ⭐⭐⭐⭐⭐
 **What:** Combining GNN embeddings + tabular features achieves +33.5% improvement  
 **Why Unique:** First wallet-level fusion approach for Bitcoin fraud detection  
 **Citation Value:** VERY HIGH - E9 is original research contribution
-
-![E9 Fusion Synergy](reports/plots/e9_fusion_synergy.png)
 
 ### 4. **Heterogeneous Temporal GNNs Work** ⭐⭐⭐⭐
 **What:** Properly designed heterogeneous GNN (+4.1% over homogeneous)  
@@ -111,10 +97,6 @@
 ---
 
 ## 🔬 The Complete Scientific Story
-
-![Scientific Story Flowchart](reports/plots/scientific_story_flowchart.png)
-
-*Complete scientific method demonstration: Hypothesis → Failure → Investigation → Solution → Application*
 
 ### Act 1: Foundation (E1-E3)
 **Goal:** Establish honest temporal baseline  
@@ -136,10 +118,6 @@
 **Result:** 0.5846 PR-AUC (✅ success, +108% over E6)  
 **Corrected Understanding:** "Simple heterogeneous architectures work best"
 
-![Performance Evolution](reports/plots/performance_evolution.png)
-
-*E6→E7-A3 progression: Architecture design matters more than scale*
-
 ### Act 5: Novel Application (E9)
 **Goal:** Validate E7-A3 embeddings in fusion scenario  
 **Result:** 0.3003 PR-AUC (+33.5% improvement)  
@@ -148,10 +126,6 @@
 ---
 
 ## 📈 Performance Summary
-
-![All Experiments Summary](reports/plots/all_experiments_summary.png)
-
-*Comprehensive performance across all E1-E9 experiments*
 
 | Model | PR-AUC | Type | Key Finding |
 |-------|--------|------|-------------|
