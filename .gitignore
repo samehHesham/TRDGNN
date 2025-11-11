@@ -69,3 +69,12 @@ data/processed/
 # Environment variables
 .env
 .env.local
+
+# Debug & temporary files
+debug.log
+*_fix.py
+*_debug*.py
+*_emergency*.py
+
+# Archived notebooks
+notebooks/archive/
