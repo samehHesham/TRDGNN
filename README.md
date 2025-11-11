@@ -66,11 +66,8 @@ pytest tests/test_trd_sampler.py -v
 
 **Technical Details:**
 - [**PROJECT_SPEC.md**](PROJECT_SPEC.md) - Technical specification
+- [**PROJECT_STRUCTURE.md**](PROJECT_STRUCTURE.md) - Repository organization & file guide
 - [**E6_HETEROGENEOUS_GNN_DOCUMENTATION.md**](docs/E6_HETEROGENEOUS_GNN_DOCUMENTATION.md) - Complex model failure analysis
-
-**Setup & Operations:**
-- [**AGENT.md**](AGENT.md) - Development guidelines
-- [**START_PROMPT.md**](START_PROMPT.md) - Quick start
 - [**docs/baseline_provenance.json**](docs/baseline_provenance.json) - Provenance tracking
 
 ## 📊 Results & Baseline Comparison
