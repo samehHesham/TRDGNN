@@ -106,3 +106,7 @@ docs/CLONE_INIT*.md
 docs/START_PROMPT*.md
 docs/E5_E9_IMPLEMENTATION_PLAN.md
 docs/EXTENSION_PROMPT_HHGTN_TRD.md
+
+# Personal resume/career documents (keep public-facing RESUME.md)
+RESUME_ENTRY.md
+PROFESSIONAL_RESUME_ENTRY.md

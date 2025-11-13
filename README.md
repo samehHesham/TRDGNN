@@ -50,13 +50,7 @@ We trained 9 models using **strict temporal splits** (zero future leakage) on th
 | 🏆 **E9 Fusion** | **0.300** | 0.890 | 0.176 | **Wallet-Level** | **+33.5% synergy** ⭐ |
 | 🕸️ E6 (Complex-HHGTN) | 0.281 | 0.756 | 0.298 | Temporal Hetero GNN | Failure case |
 
-<div align="center">
 
-![Performance Evolution](reports/plots/performance_evolution.png)
-
-**Figure 1:** Complete experimental journey showing E6 failure → E7 investigation → E7-A3 success → E9 fusion innovation
-
-</div>
 
 > 📌 **Key Insight:** The **108% recovery** (E6 → E7-A3) demonstrates that architectural simplicity enables better generalization. The **+33.5% fusion synergy** (E9) proves GNN structural embeddings complement tabular features.
 
@@ -239,13 +233,7 @@ TRDGNN/
 **Impact:** Novel hybrid methodology; demonstrates complementary information  
 **Citation Value:** VERY HIGH - Original research contribution
 
-<div align="center">
 
-![Six Contributions](reports/plots/six_contributions.png)
-
-**Figure 2:** Six distinct contributions rated by citation value and novelty
-
-</div>
 
 ---
 
@@ -276,13 +264,7 @@ TRDGNN/
 **Result:** 0.3003 PR-AUC (+33.5% improvement)  
 **Discovery:** GNN embeddings provide complementary structural information
 
-<div align="center">
 
-![Scientific Story Flowchart](reports/plots/scientific_story_flowchart.png)
-
-**Figure 3:** Complete research journey showing the scientific method in action
-
-</div>
 
 > 📌 **Why This Matters:** Most papers show only successes. We document the complete cycle: hypothesis → failure → systematic investigation → improved solution → novel application. **This is publication-quality research demonstrating the scientific method.**
 

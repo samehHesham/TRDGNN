@@ -9,18 +9,10 @@
 
 ## 🎯 Executive Summary
 
-![Research Journey](../reports/plots/experiment_timeline.png)
-
-*Complete E1-E9 research journey showing the scientific method in action*
-
-This document presents the **complete scientific narrative** of the TRD-GNN project, explaining how our research progressed from initial hypothesis through failure, systematic investigation, and ultimately to an improved solution. This is the **definitive guide** to understanding the project's value and contributions.
+**Complete scientific story** of our research journey from initial hypothesis through failure, systematic investigation, and ultimately to an improved solution. This is the **definitive guide** to understanding the project's value and contributions.
 
 **Key Achievement:**
 We developed the first successful heterogeneous temporal GNN for fraud detection, achieving **0.5846 PR-AUC** (+4.7% over baseline) while reducing the "temporal tax" from 16.5% to 12.6%. Through systematic investigation of initial failures and novel fusion experiments, we demonstrated that **graph structure + tabular features achieve +33.5% synergy**, establishing the scientific method in action.
-
-![Six Novel Contributions](../reports/plots/six_contributions.png)
-
-*Six distinct contributions rated by citation value*
 
 ---
 
@@ -39,10 +31,6 @@ We developed the first successful heterogeneous temporal GNN for fraud detection
 
 ## 🚀 The Research Journey
 
-![Scientific Story Flowchart](../reports/plots/scientific_story_flowchart.png)
-
-*Complete scientific method: Hypothesis → Failure → Investigation → Solution → Application*
-
 ### Phase 1: Foundation (E1-E3)
 
 **Goal:** Establish honest temporal baseline
@@ -56,10 +44,6 @@ We developed the first successful heterogeneous temporal GNN for fraud detection
 - ✅ TRD sampler: 7/7 tests passing (strict temporal constraints)
 - ✅ E3: 0.5618 PR-AUC (deployment-ready baseline)
 - ✅ Quantified "temporal tax": 16.5% drop vs XGBoost (0.6689)
-
-![Temporal Tax](../reports/plots/temporal_tax_reduction.png)
-
-*Temporal tax quantified at 16.5% for honest temporal evaluation*
 
 **Scientific Value:**
 - First rigorously tested temporal fraud detection GNN
